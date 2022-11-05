@@ -34,12 +34,8 @@ use function array_key_exists;
 
 class OverworldPopulator implements Populator{
 
-	/** @var Populator[] */
-	private array $biome_populators = []; // key = biomeId
+	private array $biome_populators = [];
 
-	/**
-	 * Creates a populator with biome populators for all vanilla overworld biomes.
-	 */
 	public function __construct(){
 		$this->registerBiomePopulator(new BiomePopulator()); // defaults applied to all biomes
 		$this->registerBiomePopulator(new PlainsPopulator());
@@ -61,14 +57,6 @@ class OverworldPopulator implements Populator{
 		$this->registerBiomePopulator(new IcePlainsSpikesPopulator());
 		$this->registerBiomePopulator(new SavannaPopulator());
 		$this->registerBiomePopulator(new SavannaMountainsPopulator());
-		/*
-		$this->registerBiomePopulator(new ExtremeHillsPopulator());
-		$this->registerBiomePopulator(new ExtremeHillsPlusPopulator());
-		$this->registerBiomePopulator(new MesaPopulator());
-		$this->registerBiomePopulator(new MesaForestPopulator());
-		$this->registerBiomePopulator(new MushroomIslandPopulator());
-		$this->registerBiomePopulator(new OceanPopulator());
-		*/
 	}
 
 	public function populate(ChunkManager $world, Random $random, int $chunk_x, int $chunk_z, Chunk $chunk) : void{
