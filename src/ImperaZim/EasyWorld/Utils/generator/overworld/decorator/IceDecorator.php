@@ -15,7 +15,6 @@ use pocketmine\world\format\Chunk;
 
 class IceDecorator extends Decorator{
 
-	/** @var int[] */
 	private static array $OVERRIDABLES;
 
 	public static function init() : void{
