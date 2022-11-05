@@ -14,20 +14,12 @@ use pocketmine\world\format\Chunk;
 
 class MushroomDecorator extends Decorator{
 
-	/** @var Block */
 	private Block $type;
 
-	/** @var bool */
 	private bool $fixed_height_range = false;
 
-	/** @var float */
 	private float $density = 0.0;
 
-	/**
-	 * Creates a mushroom decorator for the overworld.
-	 *
-	 * @param Block $type {@link Material#BROWN_MUSHROOM} or {@link Material#RED_MUSHROOM}
-	 */
 	public function __construct(Block $type){
 		$this->type = $type;
 	}
