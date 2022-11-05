@@ -18,7 +18,6 @@ use pocketmine\world\format\Chunk;
 
 class JunglePopulator extends BiomePopulator{
 
-	/** @var TreeDecoration[] */
 	protected static array $TREES;
 
 	protected static function initTrees() : void{
