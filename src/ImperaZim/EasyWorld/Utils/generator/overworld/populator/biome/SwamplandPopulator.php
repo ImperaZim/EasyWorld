@@ -17,10 +17,8 @@ use pocketmine\world\format\Chunk;
 
 class SwamplandPopulator extends BiomePopulator{
 
-	/** @var TreeDecoration[] */
 	protected static array $TREES;
 
-	/** @var FlowerDecoration[] */
 	protected static array $FLOWERS;
 
 	protected static function initTrees() : void{
