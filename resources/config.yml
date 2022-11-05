@@ -3,47 +3,47 @@ plugin.prefix: "§l§bWORLD§r"
 
 # COMMAND EASYWORLD
 command.unknow: "{prefix} §7usage: §b/easyworld help"
-command.nopermission: "{prefix} §7Você não tem permissão para usar este comando!"
+command.nopermission: "{prefix} §7You are not allowed to use this command!"
 
 # COMMAND EASYWORLD LIST
-command.list.message: "{prefix} §7Lista de mundos e configurações:"
+command.list.message: "{prefix} §7List of worlds & settings:"
 
 # COMMAND EASYWORLD MENU
-command.menu.sucess: "{prefix} §7Definições de {world} foram atualizadas!"
+command.menu.sucess: "{prefix} §7{world} definitions have been updated!"
 
 # COMMAND EASYWORLD CREATE
-world.create.has: "{prefix} §7O mundo {world} já existe!"
-world.create.sucess: "{prefix} §7O mundo {world} foi criado com sucesso!!"
+world.create.has: "{prefix} §7The world {world} already exists!"
+world.create.sucess: "{prefix} §7The world {world} has been successfully created!"
 world.create.help: "{prefix} §7Usage: §b/easyworld create (name) (seed = random) (generator = normal)"
 
 # COMMAND EASYWORLD DELETE
-world.delete.non: "{prefix} §7O mundo {world} não existe!"
-world.delete.sucess: "{prefix} §7O mundo {world} foi removido com sucesso!!"
+world.delete.non: "{prefix} §7The world {world} does not exist!"
+world.delete.sucess: "{prefix} §7The world {world} has been successfully removed!"
 world.delete.help: "{prefix} §7Usage: §b/easyworld delete (name)"
 
 # COMMAND EASYWORLD RENAME
-world.rename.non: "{prefix} §7O mundo {world} não existe!"
-world.rename.has: "{prefix} §7O mundo {world} ja existe!"
-world.rename.sucess: "{prefix} §7O nome do mundo {world} foi alterado para {new_name} com sucesso!!"
+world.rename.non: "{prefix} §7The world {world} does not exist!"
+world.rename.has: "{prefix} §7The world {world} already exists!"
+world.rename.sucess: "{prefix} §7The world name {world} has been changed to {new_name} successfully!"
 world.rename.help: "{prefix} §7Usage: §b/easyworld rename (OldName) (NewName)"
 
 # COMMAND EASYWORLD TELEPORT
 world.tp.help: "{prefix} §7Usage: §b/easyworld teleport (name)"
-world.tp.unknow: "{prefix} §7O mundo {world} não existe!"
-world.tp.sucess: "{prefix} §7Teleportado para {world} com sucesso!"
+world.tp.unknow: "{prefix} §7The world {world} does not exist!"
+world.tp.sucess: "{prefix} §7Teleported to {world} successfully!"
 
 # EASYWORLD PROTECTED
-world.protect.place.message: "{prefix} §7Você não tem permissão para botar blocos nesse mundo!"
-world.protect.break.message: "{prefix} §7Você não tem permissão para quebrar blocos nesse mundo!" 
+world.protect.place.message: "{prefix} §7You are not allowed to place blocks in this world!"
+world.protect.break.message: "{prefix} §7You are not allowed to break blocks in this world!" 
 
 # EASYWORLD CHAT LOCKED
-world.chat.locked.message: "{prefix} §7Você não tem permissão para mandar mensagens deste mundo!" 
+world.chat.locked.message: "{prefix} §7You are not allowed to send messages from this world!" 
 
 # EASYWORLD COMBAT DISABLE
-world.combat.off.message: "§cO combate está desativado nesse mundo!"
+world.combat.off.message: "§cCombat is off in this world!"
 
 # EASYWORLD BLOCK COMMAND
-command.block.has: "{prefix} §7Esse comando ja foi bloqueado no mundo§b{world}§7!"
-command.block.sucess: "{prefix} §7Comando bloqueado no mundo §b{world}§7!" 
-command.block.error: "{prefix} §7Você não pode usar §{command}§7 no mundo §b{world}§7!"
+command.block.has: "{prefix} §7This command has already been blocked in world§b{world}§7!"
+command.block.sucess: "{prefix} §7Command locked in world §b{world}§7!" 
+command.block.error: "{prefix} §7You cannot use §{command}§7 in the world §b{world}§7!"
 command.block.help: "{prefix} §7Use /easyworld command (command)"
