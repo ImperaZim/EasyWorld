@@ -13,10 +13,8 @@ use pocketmine\block\VanillaBlocks;
 
 class SavannaPopulator extends BiomePopulator{
 
-	/** @var DoublePlantDecoration[] */
 	protected static array $DOUBLE_PLANTS;
 
-	/** @var TreeDecoration[] */
 	protected static array $TREES;
 
 	public static function init() : void{
