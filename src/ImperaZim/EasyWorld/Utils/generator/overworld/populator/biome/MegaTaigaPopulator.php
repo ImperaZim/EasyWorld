@@ -17,7 +17,6 @@ use pocketmine\world\format\Chunk;
 
 class MegaTaigaPopulator extends TaigaPopulator{
 
-	/** @var TreeDecoration[] */
 	protected static array $TREES;
 
 	protected static function initTrees() : void{
