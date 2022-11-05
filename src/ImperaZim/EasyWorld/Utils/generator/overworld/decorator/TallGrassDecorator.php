@@ -15,7 +15,6 @@ use pocketmine\world\format\Chunk;
 
 class TallGrassDecorator extends Decorator{
 
-	/** @var float */
 	private float $fern_density = 0.0;
 
 	final public function setFernDensity(float $fern_density) : void{
@@ -27,13 +26,11 @@ class TallGrassDecorator extends Decorator{
 		$z = $random->nextBoundedInt(16);
 		$top_block = $chunk->getHighestBlockAt($x, $z);
 		if($top_block <= 0){
-			// Nothing to do if this column is empty
 			return;
 		}
 
 		$source_y = $random->nextBoundedInt(abs($top_block << 1));
 
-		// the grass species can change on each decoration pass
 		$species = BlockLegacyMetadata::TALLGRASS_NORMAL;
 		if($this->fern_density > 0 && $random->nextFloat() < $this->fern_density){
 			$species = BlockLegacyMetadata::TALLGRASS_FERN;
