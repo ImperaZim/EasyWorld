@@ -27,24 +27,10 @@ abstract class VanillaGenerator extends Generator{
 		$this->biome_grid = MapLayer::initialize($seed, $environment, $world_type ?? WorldType::NORMAL);
 	}
 
-	/**
-	 * @param int $x
-	 * @param int $z
-	 * @param int $size_x
-	 * @param int $size_z
-	 * @return int[]
-	 */
 	public function getBiomeGridAtLowerRes(int $x, int $z, int $size_x, int $size_z) : array{
 		return $this->biome_grid->low_resolution->generateValues($x, $z, $size_x, $size_z);
 	}
 
-	/**
-	 * @param int $x
-	 * @param int $z
-	 * @param int $size_x
-	 * @param int $size_z
-	 * @return int[]
-	 */
 	public function getBiomeGrid(int $x, int $z, int $size_x, int $size_z) : array{
 		return $this->biome_grid->high_resolution->generateValues($x, $z, $size_x, $size_z);
 	}
@@ -76,7 +62,6 @@ abstract class VanillaGenerator extends Generator{
 	}
 
 	public function populateChunk(ChunkManager $world, int $chunk_x, int $chunk_z) : void{
-		/** @var Chunk $chunk */
 		$chunk = $world->getChunk($chunk_x, $chunk_z);
 		foreach($this->populators as $populator){
 			$populator->populate($world, $this->random, $chunk_x, $chunk_z, $chunk);
