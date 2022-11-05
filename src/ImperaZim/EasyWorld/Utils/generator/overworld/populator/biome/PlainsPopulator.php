@@ -18,10 +18,8 @@ use pocketmine\world\format\Chunk;
 
 class PlainsPopulator extends BiomePopulator{
 
-	/** @var Block[] */
 	protected static array $PLAINS_FLOWERS;
 
-	/** @var Block[] */
 	protected static array $PLAINS_TULIPS;
 
 	public static function init() : void{
