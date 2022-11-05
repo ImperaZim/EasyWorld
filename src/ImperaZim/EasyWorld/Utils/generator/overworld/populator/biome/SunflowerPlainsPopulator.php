@@ -10,7 +10,6 @@ use pocketmine\block\VanillaBlocks;
 
 class SunflowerPlainsPopulator extends PlainsPopulator{
 
-	/** @var DoublePlantDecoration[] */
 	private static array $DOUBLE_PLANTS;
 
 	public static function init() : void{
