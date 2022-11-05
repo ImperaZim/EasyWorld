@@ -15,11 +15,6 @@ use pocketmine\world\format\Chunk;
 
 class TreeDecorator extends Decorator{
 
-	/**
-	 * @param Random $random
-	 * @param TreeDecoration[] $decorations
-	 * @return string a GenericTree class
-	 */
 	private static function getRandomTree(Random $random, array $decorations) : ?string{
 		$total_weight = 0;
 		foreach($decorations as $decoration){
@@ -39,7 +34,6 @@ class TreeDecorator extends Decorator{
 		return null;
 	}
 
-	/** @var TreeDecoration[] */
 	private array $trees = [];
 
 	final public function setTrees(TreeDecoration ...$trees) : void{
