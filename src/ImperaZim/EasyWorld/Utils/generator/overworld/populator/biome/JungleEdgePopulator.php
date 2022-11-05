@@ -11,7 +11,6 @@ use ImperaZim\EasyWorld\Utils\generator\overworld\decorator\types\TreeDecoration
 
 class JungleEdgePopulator extends JunglePopulator{
 
-	/** @var TreeDecoration[] */
 	protected static array $TREES;
 
 	protected static function initTrees() : void{
