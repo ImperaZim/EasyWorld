@@ -16,7 +16,6 @@ use pocketmine\world\format\Chunk;
 
 class FlowerForestPopulator extends ForestPopulator{
 
-	/** @var Block[] */
 	protected static array $FLOWERS;
 
 	protected static function initFlowers() : void{
