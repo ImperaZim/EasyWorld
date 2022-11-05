@@ -19,10 +19,8 @@ class ForestPopulator extends BiomePopulator{
 
 	private const BIOMES = [BiomeIds::FOREST, BiomeIds::FOREST_HILLS];
 
-	/** @var TreeDecoration[] */
 	protected static array $TREES;
 
-	/** @var DoublePlant[] */
 	private static array $DOUBLE_PLANTS;
 
 	public static function init() : void{
@@ -41,7 +39,6 @@ class ForestPopulator extends BiomePopulator{
 		];
 	}
 
-	/** @var int */
 	protected int $double_plant_lowering_amount = 3;
 
 	protected function initPopulators() : void{
