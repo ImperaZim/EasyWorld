@@ -16,7 +16,6 @@ class RoofedForestPopulator extends ForestPopulator{
 
 	private const BIOMES = [BiomeIds::ROOFED_FOREST, BiomeIds::ROOFED_FOREST_MUTATED];
 
-	/** @var TreeDecoration[] */
 	protected static array $TREES;
 
 	protected static function initTrees() : void{
