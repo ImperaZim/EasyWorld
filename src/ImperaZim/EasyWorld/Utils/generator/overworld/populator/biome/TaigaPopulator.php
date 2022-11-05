@@ -17,10 +17,8 @@ use pocketmine\world\format\Chunk;
 
 class TaigaPopulator extends BiomePopulator{
 
-	/** @var DoublePlantDecoration[] */
 	protected static array $DOUBLE_PLANTS;
 
-	/** @var TreeDecoration[] */
 	protected static array $TREES;
 
 	public static function init() : void{
