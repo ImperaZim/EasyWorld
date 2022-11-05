@@ -15,13 +15,8 @@ use pocketmine\world\format\Chunk;
 
 class OrePopulator implements Populator{
 
-	/** @var OreTypeHolder[] */
 	private array $ores = [];
 
-	/**
-	 * Creates a populator for dirt, gravel, andesite, diorite, granite; and coal, iron, gold,
-	 * redstone, diamond and lapis lazuli ores.
-	 */
 	public function __construct(){
 		$this->addOre(new OreType(VanillaBlocks::DIRT(), 0, 256, 32), 10);
 		$this->addOre(new OreType(VanillaBlocks::GRAVEL(), 0, 256, 32), 8);
