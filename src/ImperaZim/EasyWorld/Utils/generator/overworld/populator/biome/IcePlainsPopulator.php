@@ -10,7 +10,6 @@ use ImperaZim\EasyWorld\Utils\generator\overworld\decorator\types\TreeDecoration
 
 class IcePlainsPopulator extends BiomePopulator{
 	
-	/** @var TreeDecoration[] */
 	protected static array $TREES;
 	
 	protected static function initTrees() : void{
