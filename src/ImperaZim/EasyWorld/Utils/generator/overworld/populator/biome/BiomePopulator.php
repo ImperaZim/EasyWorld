@@ -28,10 +28,8 @@ use pocketmine\world\format\Chunk;
 
 class BiomePopulator implements Populator{
 
-	/** @var TreeDecoration[] */
 	protected static array $TREES;
 
-	/** @var FlowerDecoration[] */
 	protected static array $FLOWERS;
 
 	public static function init() : void{
@@ -53,67 +51,44 @@ class BiomePopulator implements Populator{
 		];
 	}
 
-	/** @var LakeDecorator */
 	protected LakeDecorator $water_lake_decorator;
 
-	/** @var LakeDecorator */
 	protected LakeDecorator $lava_lake_decorator;
 
-	/** @var OrePopulator */
 	protected OrePopulator $ore_populator;
 
-	/** @var UnderwaterDecorator */
 	protected UnderwaterDecorator $sand_patch_decorator;
 
-	/** @var UnderwaterDecorator */
 	protected UnderwaterDecorator $clay_patch_decorator;
 
-	/** @var UnderwaterDecorator */
 	protected UnderwaterDecorator $gravel_patch_decorator;
 
-	/** @var DoublePlantDecorator */
 	protected DoublePlantDecorator $double_plant_decorator;
 
-	/** @var TreeDecorator */
 	protected TreeDecorator $tree_decorator;
 
-	/** @var FlowerDecorator */
 	protected FlowerDecorator $flower_decorator;
 
-	/** @var TallGrassDecorator */
 	protected TallGrassDecorator $tall_grass_decorator;
 
-	/** @var DeadBushDecorator */
 	protected DeadBushDecorator $dead_bush_decorator;
 
-	/** @var MushroomDecorator */
 	protected MushroomDecorator $brown_mushroom_decorator;
 
-	/** @var MushroomDecorator */
 	protected MushroomDecorator $red_mushroom_decorator;
 
-	/** @var SugarCaneDecorator */
 	protected SugarCaneDecorator $sugar_cane_decorator;
 
-	/** @var PumpkinDecorator */
 	protected PumpkinDecorator $pumpkin_decorator;
 
-	/** @var CactusDecorator */
 	protected CactusDecorator $cactus_decorator;
 
-	/** @var SurfaceCaveDecorator */
 	protected SurfaceCaveDecorator $surface_cave_decorator;
 
-	/** @var Populator[] */
 	private array $in_ground_populators = [];
 
-	/** @var Populator[] */
 	private array $on_ground_populators = [];
 
-	/**
-	 * Creates a populator for lakes; dungeons; caves; ores; sand, gravel and clay patches; desert
-	 * wells; and vegetation.
-	 */
 	public function __construct(){
 		$this->water_lake_decorator = new LakeDecorator(VanillaBlocks::WATER()->getStillForm(), 4);
 		$this->lava_lake_decorator = new LakeDecorator(VanillaBlocks::LAVA()->getStillForm(), 8, 8);
@@ -188,12 +163,6 @@ class BiomePopulator implements Populator{
 		$this->cactus_decorator->setAmount(0);
 	}
 
-	/**
-	 * Returns an array of biome ids or null if this populator targets all
-	 * biomes.
-	 *
-	 * @return int[]|null
-	 */
 	public function getBiomes() : ?array{
 		return null;
 	}
