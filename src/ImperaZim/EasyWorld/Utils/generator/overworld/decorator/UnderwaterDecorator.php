@@ -14,29 +14,18 @@ use pocketmine\world\format\Chunk;
 
 class UnderwaterDecorator extends Decorator{
 
-	/** @var Block */
 	private Block $type;
 
-	/** @var int */
 	private int $horiz_radius;
 
-	/** @var int */
 	private int $vert_radius;
 
-	/** @var int[] */
 	private array $overridables;
 
 	public function __construct(Block $type){
 		$this->type = $type;
 	}
 
-	/**
-	 * Updates the size of this decorator.
-	 *
-	 * @param int $horiz_radius the maximum radius on the horizontal plane
-	 * @param int $vert_radius the depth above and below the center
-	 * @return UnderwaterDecorator this, updated
-	 */
 	final public function setRadii(int $horiz_radius, int $vert_radius) : UnderwaterDecorator{
 		$this->horiz_radius = $horiz_radius;
 		$this->vert_radius = $vert_radius;
