@@ -12,7 +12,6 @@ class BirchForestPopulator extends ForestPopulator{
 
 	private const BIOMES = [BiomeIds::BIRCH_FOREST, BiomeIds::BIRCH_FOREST_HILLS];
 
-	/** @var TreeDecoration[] */
 	protected static array $TREES;
 
 	protected static function initTrees() : void{
