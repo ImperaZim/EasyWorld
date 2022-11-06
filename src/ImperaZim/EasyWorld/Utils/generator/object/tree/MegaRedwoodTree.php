@@ -29,7 +29,6 @@ class MegaRedwoodTree extends MegaJungleTree{
 			return false;
 		}
 
-		// generates the leaves
 		$previous_radius = 0;
 		for($y = $source_y + $this->height - $this->leaves_height; $y <= $source_y + $this->height; ++$y){
 			$n = $source_y + $this->height - $y;
@@ -41,15 +40,11 @@ class MegaRedwoodTree extends MegaJungleTree{
 			$previous_radius = $radius;
 		}
 
-		// generates the trunk
 		$this->generateTrunk($world, $source_x, $source_y, $source_z);
 
-		// blocks below trunk are always dirt
 		$this->generateDirtBelowTrunk($source_x, $source_y, $source_z);
 		return true;
 	}
 
-	protected function generateDirtBelowTrunk(int $block_x, int $block_y, int $block_z) : void{
-		// mega redwood tree does not replaces blocks below (surely to preserves podzol)
-	}
+	protected function generateDirtBelowTrunk(int $block_x, int $block_y, int $block_z) : void{ }
 }
