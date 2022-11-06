@@ -23,16 +23,6 @@ class ErosionMapLayer extends MapLayer{
 		$final_values = [];
 		for($i = 0; $i < $size_z; ++$i){
 			for($j = 0; $j < $size_x; ++$j){
-				// This applies erosion using Rotated Von Neumann neighborhood
-				// it takes a 3x3 grid with a cross shape and analyzes values as follow
-				// X0X
-				// 0X0
-				// X0X
-				// the grid center value decides how we are proceeding:
-				// - if it's land and it's surrounded by at least 1 ocean cell there are 4/5 chances
-				// to proceed to land weathering, and 1/5 chance to spread some land.
-				// - if it's ocean and it's surrounded by at least 1 land cell, there are 2/3
-				// chances to proceed to land weathering, and 1/3 chance to spread some land.
 				$upper_left_val = $values[$j + $i * $grid_size_x];
 				$lower_left_val = $values[$j + ($i + 2) * $grid_size_x];
 				$upper_right_val = $values[$j + 2 + $i * $grid_size_x];
