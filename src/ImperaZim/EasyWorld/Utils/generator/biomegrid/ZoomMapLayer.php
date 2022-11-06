@@ -26,7 +26,6 @@ class ZoomMapLayer extends MapLayer{
 		$values = $this->below_layer->generateValues($grid_x, $grid_z, $grid_size_x, $grid_size_z);
 
 		$zoom_size_x = $grid_size_x - 1 << 1;
-		// $zoom_size_z = $grid_size_z - 1 << 1;
 		$tmp_values = [];
 		for($i = 0; $i < $grid_size_z - 1; ++$i){
 			$n = $i * 2 * $zoom_size_x;
