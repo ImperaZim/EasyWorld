@@ -34,10 +34,8 @@ class TallRedwoodTree extends RedwoodTree{
 			return false;
 		}
 
-		// generate the leaves
 		$radius = 0;
 		for($y = $source_y + $this->height; $y >= $source_y + $this->leaves_height; --$y){
-			// leaves are built from top to bottom
 			for($x = $source_x - $radius; $x <= $source_x + $radius; ++$x){
 				for($z = $source_z - $radius; $z <= $source_z + $radius; ++$z){
 					if(
@@ -59,7 +57,6 @@ class TallRedwoodTree extends RedwoodTree{
 			}
 		}
 
-		// generate the trunk
 		for($y = 0; $y < $this->height - 1; ++$y){
 			$this->replaceIfAirOrLeaves($source_x, $source_y + $y, $source_z, $this->log_type, $world);
 		}
