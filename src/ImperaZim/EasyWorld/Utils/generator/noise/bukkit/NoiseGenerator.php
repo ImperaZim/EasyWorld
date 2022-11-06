@@ -6,7 +6,6 @@ namespace ImperaZim\EasyWorld\Utils\generator\noise\bukkit;
 
 abstract class NoiseGenerator{
 
-	/** @var int[] */
 	protected array $perm = [];
 
 	protected float $offset_x;
@@ -32,13 +31,5 @@ abstract class NoiseGenerator{
 		return (($hash & 1) === 0 ? $u : -$u) + (($hash & 2) === 0 ? $v : -$v);
 	}
 
-	/**
-	 * Computes and returns the 3D noise for the given coordinates in 3D space
-	 *
-	 * @param float $x X coordinate
-	 * @param float $y Y coordinate
-	 * @param float $z Z coordinate
-	 * @return float at given location, from range -1 to 1
-	 */
 	abstract public function noise3d(float $x, float $y = 0.0, float $z = 0.0) : float;
 }
