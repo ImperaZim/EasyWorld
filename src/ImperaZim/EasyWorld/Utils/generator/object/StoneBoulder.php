@@ -12,7 +12,6 @@ use function array_key_exists;
 
 class StoneBoulder extends TerrainObject{
 
-	/** @var int[] */
 	private static array $GROUND_TYPES;
 
 	public static function init() : void{
