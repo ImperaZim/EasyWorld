@@ -18,7 +18,6 @@ use function array_key_exists;
 
 class SwampTree extends CocoaTree{
 
-	/** @var int[] */
 	private static array $WATER_BLOCK_TYPES;
 
 	public static function init() : void{
@@ -42,21 +41,18 @@ class SwampTree extends CocoaTree{
 
 	public function canPlace(int $base_x, int $base_y, int $base_z, ChunkManager $world) : bool{
 		for($y = $base_y; $y <= $base_y + 1 + $this->height; ++$y){
-			if($y < 0 || $y >= World::Y_MAX){ // height out of range
+			if($y < 0 || $y >= World::Y_MAX){ 
 				return false;
 			}
 
-			// Space requirement
-			$radius = 1; // default radius if above first block
+			$radius = 1;
 			if($y === $base_y){
-				$radius = 0; // radius at source block y is 0 (only trunk)
+				$radius = 0; 
 			}elseif($y >= $base_y + 1 + $this->height - 2){
-				$radius = 3; // max radius starting at leaves bottom
+				$radius = 3; 
 			}
-			// check for block collision on horizontal slices
 			for($x = $base_x - $radius; $x <= $base_x + $radius; ++$x){
 				for($z = $base_z - $radius; $z <= $base_z + $radius; ++$z){
-					// we can overlap some blocks around
 					$type = $world->getBlockAt($x, $y, $z)->getId();
 					if(array_key_exists($type, $this->overridables)){
 						continue;
@@ -76,7 +72,6 @@ class SwampTree extends CocoaTree{
 	}
 
 	public function generate(ChunkManager $world, Random $random, int $source_x, int $source_y, int $source_z) : bool{
-		/** @var Chunk $chunk */
 		$chunk = $world->getChunk($source_x >> 4, $source_z >> 4);
 		$chunk_block_x = $source_x & 0x0f;
 		$chunk_block_z = $source_z & 0x0f;
@@ -90,7 +85,6 @@ class SwampTree extends CocoaTree{
 			return false;
 		}
 
-		// generate the leaves
 		for($y = $source_y + $this->height - 3; $y <= $source_y + $this->height; ++$y){
 			$n = $y - ($source_y + $this->height);
 			$radius = (int) (2 - $n / 2);
@@ -108,7 +102,6 @@ class SwampTree extends CocoaTree{
 		}
 
 		$world_height = $world->getMaxY();
-		// generate the trunk
 		for($y = 0; $y < $this->height; ++$y){
 			if($source_y + $y < $world_height){
 				$material = $block_factory->fromFullBlock($chunk->getFullBlock($chunk_block_x, $source_y + $y, $chunk_block_z))->getId();
@@ -123,7 +116,6 @@ class SwampTree extends CocoaTree{
 			}
 		}
 
-		// add some vines on the leaves
 		$this->addVinesOnLeaves($source_x, $source_y, $source_z, $world, $random);
 
 		$this->transaction->addBlockAt($source_x, $source_y - 1, $source_z, VanillaBlocks::DIRT());
