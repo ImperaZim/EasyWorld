@@ -11,10 +11,8 @@ final class BiomeClimateManager{
 
 	private static SimplexOctaveGenerator $noise_gen;
 
-	/** @var BiomeClimate */
 	private static BiomeClimate $default;
 
-	/** @var BiomeClimate[] */
 	private static array $climates = [];
 
 	public static function init() : void{
