@@ -14,11 +14,6 @@ use pocketmine\world\format\Chunk;
 
 class DoublePlantDecorator extends Decorator{
 
-	/**
-	 * @param Random $random
-	 * @param DoublePlantDecoration[] $decorations
-	 * @return DoublePlant|null
-	 */
 	private static function getRandomDoublePlant(Random $random, array $decorations) : ?DoublePlant{
 		$totalWeight = 0;
 		foreach($decorations as $decoration){
@@ -34,7 +29,6 @@ class DoublePlantDecorator extends Decorator{
 		return null;
 	}
 
-	/** @var DoublePlantDecoration[] */
 	private array $doublePlants = [];
 
 	final public function setDoublePlants(DoublePlantDecoration ...$doublePlants) : void{
