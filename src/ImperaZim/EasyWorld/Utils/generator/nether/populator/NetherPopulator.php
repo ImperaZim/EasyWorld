@@ -16,10 +16,8 @@ use pocketmine\world\World;
 
 class NetherPopulator implements Populator{
 
-	/** @var Populator[] */
 	private array $in_ground_populators = [];
 
-	/** @var Populator[] */
 	private array $on_ground_populators = [];
 
 	private OrePopulator $ore_populator;
