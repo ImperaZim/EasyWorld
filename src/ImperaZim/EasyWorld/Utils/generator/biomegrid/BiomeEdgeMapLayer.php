@@ -58,10 +58,9 @@ class BiomeEdgeMapLayer extends MapLayer{
 		$final_values = [];
 		for($i = 0; $i < $size_z; ++$i){
 			for($j = 0; $j < $size_x; ++$j){
-				// This applies biome large edges using Von Neumann neighborhood
 				$center_val = $values[$j + 1 + ($i + 1) * $grid_size_x];
 				$val = $center_val;
-				foreach(self::$EDGES as $edge){ // [$map, $entry]
+				foreach(self::$EDGES as $edge){ 
 					if(array_key_exists($center_val, $edge->key)){
 						$upper_val = $values[$j + 1 + $i * $grid_size_x];
 						$lower_val = $values[$j + 1 + ($i + 2) * $grid_size_x];
