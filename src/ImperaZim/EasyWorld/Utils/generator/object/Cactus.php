@@ -15,16 +15,6 @@ class Cactus extends TerrainObject{
 
 	private const FACES = [Facing::NORTH, Facing::EAST, Facing::SOUTH, Facing::WEST];
 
-	/**
-	 * Generates or extends a cactus, if there is space.
-	 *
-	 * @param ChunkManager $world
-	 * @param Random $random
-	 * @param int $source_x
-	 * @param int $source_y
-	 * @param int $source_z
-	 * @return bool
-	 */
 	public function generate(ChunkManager $world, Random $random, int $source_x, int $source_y, int $source_z) : bool{
 		if($world->getBlockAt($source_x, $source_y, $source_z)->getId() === BlockLegacyIds::AIR){
 			$height = $random->nextBoundedInt($random->nextBoundedInt(3) + 1) + 1;
