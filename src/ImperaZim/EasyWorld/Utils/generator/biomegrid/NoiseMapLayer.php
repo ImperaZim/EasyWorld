@@ -29,16 +29,6 @@ class NoiseMapLayer extends MapLayer{
 					$val = $this->nextInt(2) === 0 ? 3 : 0;
 				}
 				$values[$j + $i * $size_x] = $val;
-				//$values[$j + $i * $size_x] =
-				//        $noise >= -0.5
-				//                ? (float) $noise >= 0.57
-				//                        ? 2
-				//                : $noise <= 0.2
-				//                        ? 3
-				//                        : 2
-				//        : $this->nextInt(2) === 0
-				//                        ? 3
-				//                        : 0;
 			}
 		}
 		return $values;
