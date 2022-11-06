@@ -120,7 +120,6 @@ class NetherGenerator extends VanillaGenerator{
 		$nether_rack = VanillaBlocks::NETHERRACK()->getFullId();
 		$still_lava = VanillaBlocks::LAVA()->getStillForm()->getFullId();
 
-		/** @var Chunk $chunk */
 		$chunk = $world->getChunk($chunk_x, $chunk_z);
 
 		for ($i = 0; $i < 5 - 1; ++$i) {
@@ -146,14 +145,11 @@ class NetherGenerator extends VanillaGenerator{
                         for ($m = 0; $m < 4; ++$m) {
 							$dens = $d9;
                             for ($n = 0; $n < 4; ++$n) {
-								// any density higher than 0 is ground, any density lower or equal
-								// to 0 is air (or lava if under the lava level).
 								if ($dens > 0) {
 									$sub_chunk->setFullBlock($m + ($i << 2), $y_block_pos, $n + ($j << 2), $nether_rack);
 								} else if ($l + ($k << 3) < 32) {
 									$sub_chunk->setFullBlock($m + ($i << 2), $y_block_pos, $n + ($j << 2), $still_lava);
 								}
-								// interpolation along z
 								$dens += ($d10 - $d9) / 4;
 							}     
                             $d9 += ($d2 - $d1) / 4;
@@ -216,7 +212,6 @@ class NetherGenerator extends VanillaGenerator{
 					$noise_r_2 = $roughness_noise_2[$index] / 512.0;
 					$noise_d = ($detail_noise[$index] / 10.0 + 1.0) / 2.0;
 					$nh = $nv[$k];
-					// linear interpolation
 					$dens = $noise_d < 0 ? $noise_r : ($noise_d > 1 ? $noise_r_2 : $noise_r + ($noise_r_2 - $noise_r) * $noise_d);
 					$dens -= $nh;
 					++$index;
