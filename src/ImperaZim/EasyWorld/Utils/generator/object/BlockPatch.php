@@ -17,16 +17,8 @@ class BlockPatch extends TerrainObject{
 	private int $horiz_radius;
 	private int $vert_radius;
 
-	/** @var int[] */
 	private array $overridables = [];
 
-	/**
-	 * Creates a patch.
-	 * @param Block $type the ground cover block type
-	 * @param int $horiz_radius the maximum radius on the horizontal plane
-	 * @param int $vert_radius the depth above and below the center
-	 * @param int ...$overridables_full_id
-	 */
 	public function __construct(Block $type, int $horiz_radius, int $vert_radius, int ...$overridables_full_id){
 		$this->type = $type;
 		$this->horiz_radius = $horiz_radius;
