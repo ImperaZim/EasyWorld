@@ -42,10 +42,10 @@ class DarkOakTree extends GenericTree{
 			return false;
 		}
 
-		$d = $random->nextFloat() * M_PI * 2.0; // random direction
+		$d = $random->nextFloat() * M_PI * 2.0;
 		$dx = (int) (cos($d) + 1.5) - 1;
 		$dz = (int) (sin($d) + 1.5) - 1;
-		if(abs($dx) > 0 && abs($dz) > 0){ // reduce possible directions to NESW
+		if(abs($dx) > 0 && abs($dz) > 0){ 
 			if($random->nextBoolean()){
 				$dx = 0;
 			}else{
@@ -58,10 +58,8 @@ class DarkOakTree extends GenericTree{
 		$center_z = $source_z;
 		$trunk_top_y = 0;
 
-		// generates the trunk
 		for($y = 0; $y < $this->height; ++$y){
 
-			// trunk twists
 			if($twist_count > 0 && $y >= $twist_height){
 				$center_x += $dx;
 				$center_z += $dz;
@@ -73,14 +71,12 @@ class DarkOakTree extends GenericTree{
 				continue;
 			}
 			$trunk_top_y = $source_y + $y;
-			// SELF, SOUTH, EAST, SOUTH EAST
 			$this->transaction->addBlockAt($center_x, $source_y + $y, $center_z, $this->log_type);
 			$this->transaction->addBlockAt($center_x, $source_y + $y, $center_z + 1, $this->log_type);
 			$this->transaction->addBlockAt($center_x + 1, $source_y + $y, $center_z, $this->log_type);
 			$this->transaction->addBlockAt($center_x + 1, $source_y + $y, $center_z + 1, $this->log_type);
 		}
 
-		// generates leaves
 		for($x = -2; $x <= 0; ++$x){
 			for($z = -2; $z <= 0; ++$z){
 				if(($x !== -1 || $z !== -2) && ($x > -2 || $z > -1)){
@@ -96,7 +92,6 @@ class DarkOakTree extends GenericTree{
 			}
 		}
 
-		// finish leaves below the canopy
 		for($x = -3; $x <= 4; ++$x){
 			for($z = -3; $z <= 4; ++$z){
 				if(abs($x) < 3 || abs($z) < 3){
@@ -105,7 +100,6 @@ class DarkOakTree extends GenericTree{
 			}
 		}
 
-		// generates some trunk excrescences
 		for($x = -1; $x <= 2; ++$x){
 			for($z = -1; $z <= 2; ++$z){
 				if(($x !== -1 && $z !== -1 && $x !== 2 && $z !== 2) || $random->nextBoundedInt(3) !== 0){
@@ -118,7 +112,6 @@ class DarkOakTree extends GenericTree{
 					}
 				}
 
-				// leaves below the canopy
 				for($i = -1; $i <= 1; ++$i){
 					for($j = -1; $j <= 1; ++$j){
 						$this->setLeaves($center_x + $x + $i, $trunk_top_y, $center_z + $z + $j, $world);
@@ -134,7 +127,6 @@ class DarkOakTree extends GenericTree{
 			}
 		}
 
-		// 50% chance to have a 4 leaves cap on the center of the canopy
 		if($random->nextBoundedInt(2) === 0){
 			$this->setLeaves($center_x, $trunk_top_y + 2, $center_z, $world);
 			$this->setLeaves($center_x + 1, $trunk_top_y + 2, $center_z, $world);
@@ -142,7 +134,6 @@ class DarkOakTree extends GenericTree{
 			$this->setLeaves($center_x, $trunk_top_y + 2, $center_z + 1, $world);
 		}
 
-		// block below trunk is always dirt (SELF, SOUTH, EAST, SOUTH EAST)
 		$dirt = VanillaBlocks::DIRT();
 		$this->transaction->addBlockAt($source_x, $source_y - 1, $source_z, $dirt);
 		$this->transaction->addBlockAt($source_x, $source_y - 1, $source_z + 1, $dirt);
