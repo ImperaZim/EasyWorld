@@ -10,10 +10,8 @@ use function array_key_exists;
 
 class BiomeThinEdgeMapLayer extends MapLayer{
 
-	/** @var int[] */
 	private static array $OCEANS = [BiomeIds::OCEAN, BiomeIds::DEEP_OCEAN];
 
-	/** @var int[] */
 	private static array $MESA_EDGES = [
 		BiomeIds::MESA => BiomeIds::DESERT,
 		BiomeIds::MESA_BRYCE => BiomeIds::DESERT,
@@ -23,7 +21,6 @@ class BiomeThinEdgeMapLayer extends MapLayer{
 		BiomeIds::MESA_PLATEAU_MUTATED => BiomeIds::DESERT
 	];
 
-	/** @var int[] */
 	private static array $JUNGLE_EDGES = [
 		BiomeIds::JUNGLE => BiomeIds::JUNGLE_EDGE,
 		BiomeIds::JUNGLE_HILLS => BiomeIds::JUNGLE_EDGE,
@@ -31,7 +28,6 @@ class BiomeThinEdgeMapLayer extends MapLayer{
 		BiomeIds::JUNGLE_EDGE_MUTATED => BiomeIds::JUNGLE_EDGE
 	];
 
-	/** @var BiomeEdgeEntry[] */
 	private static array $EDGES;
 
 	public static function init() : void{
@@ -59,7 +55,6 @@ class BiomeThinEdgeMapLayer extends MapLayer{
 		$final_values = [];
 		for($i = 0; $i < $size_z; ++$i){
 			for($j = 0; $j < $size_x; ++$j){
-				// This applies biome thin edges using Von Neumann neighborhood
 				$center_val = $values[$j + 1 + ($i + 1) * $grid_size_x];
 				$val = $center_val;
 				foreach(self::$EDGES as $edge){
