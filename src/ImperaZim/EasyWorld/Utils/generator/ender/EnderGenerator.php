@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace ImperaZim\EasyWorld\Utils\generator\ender;
 
 use ImperaZim\EasyWorld\Utils\generator\ender\populator\EnderPilar;
@@ -21,19 +19,14 @@ class EnderGenerator extends Generator {
 	protected $random;
 
 	private Simplex $noiseBase;
-
 	private array $populators = [];
 	private array $generationPopulators = [];
-
 	private int $emptyHeight = 32;
-
 	private float $emptyAmplitude = 1;
-
 	private float $density = 0.6;
 
 	public function __construct(int $seed, string $preset) {
 		parent::__construct($seed, $preset);
-
 		$this->random->setSeed($this->seed);
 		$this->noiseBase = new Simplex($this->random, 4, 1 / 4, 1 / 64);
 		$this->random->setSeed($this->seed);
@@ -45,10 +38,8 @@ class EnderGenerator extends Generator {
 
 	public function generateChunk(ChunkManager $world, int $chunkX, int $chunkZ): void {
 		$this->random->setSeed(0xa6fe78dc ^ ($chunkX << 8) ^ $chunkZ ^ $this->seed);
-
 		$chunk = $this->world->getChunk($chunkX, $chunkZ);
 		$noise = $this->noiseBase->getFastNoise3D(16, 128, 16, 4, 8, 4, $chunkX * 16, 0, $chunkZ * 16);
-
 		for($x = 0; $x < 16; ++$x) {
 			for($z = 0; $z < 16; ++$z) {
 				$chunk->setBiomeId($x, $z, 9);
