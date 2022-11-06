@@ -23,13 +23,6 @@ class SmoothMapLayer extends MapLayer{
 		$final_values = [];
 		for($i = 0; $i < $size_z; ++$i){
 			for($j = 0; $j < $size_x; ++$j){
-				// This applies smoothing using Von Neumann neighborhood
-				// it takes a 3x3 grid with a cross shape and analyzes values as follow
-				// 0X0
-				// XxX
-				// 0X0
-				// it is required that we use the same shape that was used for what we
-				// want to smooth
 				$upper_val = $values[$j + 1 + $i * $grid_size_x];
 				$lower_val = $values[$j + 1 + ($i + 2) * $grid_size_x];
 				$left_val = $values[$j + ($i + 1) * $grid_size_x];
