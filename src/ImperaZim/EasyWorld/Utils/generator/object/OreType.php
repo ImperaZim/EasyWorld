@@ -16,17 +16,6 @@ class OreType{
 	private int $amount;
 	private int $target_type;
 
-	/**
-	 * Creates an ore type. If {@code min_y} and {@code max_y} are equal, then the height range is
-	 * 0 to {@code min_y}*2, with greatest density around {@code min_y}. Otherwise, density is uniform
-	 * over the height range.
-	 *
-	 * @param Block $type the block type
-	 * @param int $min_y the minimum height
-	 * @param int $max_y the maximum height
-	 * @param int $amount the size of a vein
-	 * @param int $target_type the block this can replace
-	 */
 	public function __construct(Block $type, int $min_y, int $max_y, int $amount, int $target_type = BlockLegacyIds::STONE){
 		$this->type = $type;
 		$this->min_y = $min_y;
@@ -55,12 +44,6 @@ class OreType{
 		return $this->target_type;
 	}
 
-	/**
-	 * Generates a random height at which a vein of this ore can spawn.
-	 *
-	 * @param Random $random the PRNG to use
-	 * @return int a random height for this ore
-	 */
 	public function getRandomHeight(Random $random) : int{
 		return $this->min_y === $this->max_y
 			? $random->nextBoundedInt($this->min_y) + $random->nextBoundedInt($this->min_y)
