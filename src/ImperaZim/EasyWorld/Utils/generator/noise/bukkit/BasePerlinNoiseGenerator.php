@@ -8,7 +8,6 @@ use pocketmine\utils\Random;
 
 abstract class BasePerlinNoiseGenerator extends NoiseGenerator{
 
-	/** @var int[][] */
 	protected const GRAD3 = [
 		[1, 1, 0], [-1, 1, 0], [1, -1, 0], [-1, -1, 0],
 		[1, 0, 1], [-1, 0, 1], [1, 0, -1], [-1, 0, -1],
@@ -70,22 +69,18 @@ abstract class BasePerlinNoiseGenerator extends NoiseGenerator{
 		$floor_y = self::floor($y);
 		$floor_z = self::floor($z);
 
-		// Find unit cube containing the point
 		$X = $floor_x & 255;
 		$Y = $floor_y & 255;
 		$Z = $floor_z & 255;
 
-		// Get relative xyz coordinates of the point within the cube
 		$x -= $floor_x;
 		$y -= $floor_y;
 		$z -= $floor_z;
 
-		// Compute fade curves for xyz
 		$fX = self::fade($x);
 		$fY = self::fade($y);
 		$fZ = self::fade($z);
 
-		// Hash coordinates of the cube corners
 		$A = $this->perm[$X] + $Y;
 		$AA = $this->perm[$A] + $Z;
 		$AB = $this->perm[$A + 1] + $Z;
