@@ -14,7 +14,6 @@ use function array_key_exists;
 
 class MushroomDecorator extends Decorator{
 
-	/** @var int[] */
 	private static array $MATERIALS;
 
 	public static function init() : void{
