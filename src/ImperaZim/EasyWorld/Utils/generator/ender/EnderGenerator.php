@@ -17,16 +17,12 @@ use function abs;
 
 class EnderGenerator extends Generator {
 
-	/** @var ChunkManager */
 	protected ChunkManager $world;
-	/** @var Random */
 	protected $random;
 
 	private Simplex $noiseBase;
 
-	/** @var Populator[] */
 	private array $populators = [];
-	/** @var Populator[] */
 	private array $generationPopulators = [];
 
 	private int $emptyHeight = 32;
@@ -50,13 +46,11 @@ class EnderGenerator extends Generator {
 	public function generateChunk(ChunkManager $world, int $chunkX, int $chunkZ): void {
 		$this->random->setSeed(0xa6fe78dc ^ ($chunkX << 8) ^ $chunkZ ^ $this->seed);
 
-		/** @phpstan-var Chunk $chunk */
 		$chunk = $this->world->getChunk($chunkX, $chunkZ);
 		$noise = $this->noiseBase->getFastNoise3D(16, 128, 16, 4, 8, 4, $chunkX * 16, 0, $chunkZ * 16);
 
 		for($x = 0; $x < 16; ++$x) {
 			for($z = 0; $z < 16; ++$z) {
-				// 9 = biome end
 				$chunk->setBiomeId($x, $z, 9);
 				for($y = 0; $y < 128; ++$y) {
 					$noiseValue = (abs($this->emptyHeight - $y) / $this->emptyHeight) * $this->emptyAmplitude - $noise[$x][$z][$y];
