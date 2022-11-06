@@ -30,10 +30,10 @@ class AcaciaTree extends GenericTree{
 			return false;
 		}
 
-		$d = ($random->nextFloat() * M_PI * 2.0); // random direction
+		$d = ($random->nextFloat() * M_PI * 2.0);
 		$dx = (int) (cos($d) + 1.5) - 1;
 		$dz = (int) (sin($d) + 1.5) - 1;
-		if(abs($dx) > 0 && abs($dz) > 0){ // reduce possible directions to NESW
+		if(abs($dx) > 0 && abs($dz) > 0){ 
 			if($random->nextBoolean()){
 				$dx = 0;
 			}else{
@@ -45,10 +45,8 @@ class AcaciaTree extends GenericTree{
 		$center_x = $source_x;
 		$center_z = $source_z;
 		$trunk_top_y = 0;
-		// generates the trunk
 		for($y = 0; $y < $this->height; ++$y){
 
-			// trunk twists
 			if($twist_count > 0 && $y >= $twist_height){
 				$center_x += $dx;
 				$center_z += $dz;
@@ -62,7 +60,6 @@ class AcaciaTree extends GenericTree{
 			}
 		}
 
-		// generates leaves
 		for($x = -3; $x <= 3; ++$x){
 			$abs_x = abs($x);
 			for($z = -3; $z <= 3; ++$z){
@@ -79,7 +76,6 @@ class AcaciaTree extends GenericTree{
 			}
 		}
 
-		// try to choose a different direction for second branching and canopy
 		$d = $random->nextFloat() * M_PI * 2.0;
 		$dx_b = (int) (cos($d) + 1.5) - 1;
 		$dz_b = (int) (sin($d) + 1.5) - 1;
@@ -97,7 +93,6 @@ class AcaciaTree extends GenericTree{
 			$twist_count = $random->nextBoundedInt(3) + 1;
 			$trunk_top_y = 0;
 
-			// generates the trunk
 			for($y = $branch_height + 1; $y < $this->height; ++$y){
 				if($twist_count > 0){
 					$center_x += $dx_b;
@@ -111,7 +106,6 @@ class AcaciaTree extends GenericTree{
 				}
 			}
 
-			// generates the leaves
 			if($trunk_top_y > 0){
 				for($x = -2; $x <= 2; ++$x){
 					for($z = -2; $z <= 2; ++$z){
