@@ -10,10 +10,8 @@ use function array_key_exists;
 
 class BiomeVariationMapLayer extends MapLayer{
 
-	/** @var int[] */
 	private static array $ISLANDS = [BiomeIds::PLAINS, BiomeIds::FOREST];
 
-	/** @var int[][] */
 	private static array $VARIATIONS = [
 		BiomeIds::DESERT => [BiomeIds::DESERT_HILLS],
 		BiomeIds::FOREST => [BiomeIds::FOREST_HILLS],
@@ -33,7 +31,6 @@ class BiomeVariationMapLayer extends MapLayer{
 		BiomeIds::MESA => [BiomeIds::MESA]
 	];
 
-	/** @var string[] */
 	private static array $BIOMES;
 
 	public static function init() : void{
@@ -60,16 +57,6 @@ class BiomeVariationMapLayer extends MapLayer{
 		return $this->mergeValues($x, $z, $size_x, $size_z);
 	}
 
-	/**
-	 * Generates a rectangle, replacing all the positive values in the previous layer with random
-	 * values from 2 to 31 while leaving zero and negative values unchanged.
-	 *
-	 * @param int $x the lowest x coordinate
-	 * @param int $z the lowest z coordinate
-	 * @param int $size_x the x coordinate range
-	 * @param int $size_z the z coordinate range
-	 * @return int[] a flattened array of generated values
-	 */
 	public function generateRandomValues(int $x, int $z, int $size_x, int $size_z) : array{
 		$values = $this->below_layer->generateValues($x, $z, $size_x, $size_z);
 		$final_values = [];
@@ -87,15 +74,6 @@ class BiomeVariationMapLayer extends MapLayer{
 		return $final_values;
 	}
 
-	/**
-	 * Generates a rectangle using the previous layer and the variation layer.
-	 *
-	 * @param int $x the lowest x coordinate
-	 * @param int $z the lowest z coordinate
-	 * @param int $size_x the x coordinate range
-	 * @param int $size_z the z coordinate range
-	 * @return int[] a flattened array of generated values
-	 */
 	public function mergeValues(int $x, int $z, int $size_x, int $size_z) : array{
 		$grid_x = $x - 1;
 		$grid_z = $z - 1;
@@ -125,19 +103,18 @@ class BiomeVariationMapLayer extends MapLayer{
 					}
 					if($val !== $center_value){
 						$count = 0;
-						if($values[$j + 1 + $i * $grid_size_x] === $center_value){ // upper value
+						if($values[$j + 1 + $i * $grid_size_x] === $center_value){
 							++$count;
 						}
-						if($values[$j + 1 + ($i + 2) * $grid_size_x] === $center_value){ // lower value
+						if($values[$j + 1 + ($i + 2) * $grid_size_x] === $center_value){
 							++$count;
 						}
-						if($values[$j + ($i + 1) * $grid_size_x] === $center_value){ // left value
+						if($values[$j + ($i + 1) * $grid_size_x] === $center_value){ 
 							++$count;
 						}
-						if($values[$j + 2 + ($i + 1) * $grid_size_x] === $center_value){ // right value
+						if($values[$j + 2 + ($i + 1) * $grid_size_x] === $center_value){ 
 							++$count;
 						}
-						// spread mountains if not too close from an edge
 						$final_values[$j + $i * $size_x] = $count < 3 ? $center_value : $val;
 					}else{
 						$final_values[$j + $i * $size_x] = $val;
