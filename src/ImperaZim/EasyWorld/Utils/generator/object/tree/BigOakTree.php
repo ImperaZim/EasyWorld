@@ -54,7 +54,6 @@ class BigOakTree extends GenericTree{
 
 		$leaf_nodes = $this->generateLeafNodes($source_x, $source_y, $source_z, $world, $random);
 
-		// generate the leaves
 		foreach($leaf_nodes as $node){
 			for($y = 0; $y < $this->max_leaf_distance; ++$y){
 				$size = $y > 0 && $y < $this->max_leaf_distance - 1.0 ? 3.0 : 2.0;
@@ -71,14 +70,12 @@ class BigOakTree extends GenericTree{
 			}
 		}
 
-		// generate the trunk
 		for($y = 0; $y < $this->trunk_height; ++$y){
 			$this->transaction->addBlockAt($source_x, $source_y + $y, $source_z, $this->log_type);
 		}
 
 		$block_factory = BlockFactory::getInstance();
 
-		// generate the branches
 		foreach($leaf_nodes as $node){
 			if((float) ($node->branch_y - $source_y) >= $this->height * 0.2){
 				$base = new Vector3($source_x, $node->branch_y, $source_z);
@@ -94,7 +91,7 @@ class BigOakTree extends GenericTree{
 						$x = abs($branch->getFloorX() - $base->getFloorX());
 						$z = abs($branch->getFloorZ() - $base->getFloorZ());
 						$max = max($x, $z);
-						$direction = $max > 0 ? ($max === $x ? 4 : 8) : 0; // EAST / SOUTH
+						$direction = $max > 0 ? ($max === $x ? 4 : 8) : 0;
 						$this->transaction->addBlockAt($branch->getFloorX(), $branch->getFloorY(), $branch->getFloorZ(), $block_factory->get($this->log_type->getId(), $this->log_type->getMeta() | $direction));
 					}
 				}
@@ -124,14 +121,6 @@ class BigOakTree extends GenericTree{
 		return -1;
 	}
 
-	/**
-	 * @param int $block_x
-	 * @param int $block_y
-	 * @param int $block_z
-	 * @param ChunkManager $world
-	 * @param Random $random
-	 * @return LeafNode[]
-	 */
 	private function generateLeafNodes(int $block_x, int $block_y, int $block_z, ChunkManager $world, Random $random) : array{
 		$leaf_nodes = [];
 		$y = $block_y + $this->height = $this->max_leaf_distance;
