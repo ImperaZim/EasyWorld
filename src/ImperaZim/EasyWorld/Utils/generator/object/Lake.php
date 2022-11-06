@@ -20,7 +20,6 @@ class Lake extends TerrainObject{
 	private const MAX_DIAMETER = 16.0;
 	private const MAX_HEIGHT = 8.0;
 
-	/** @var int[] */
 	private static array $MYCEL_BIOMES;
 
 	public static function init() : void{
