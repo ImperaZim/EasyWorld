@@ -24,7 +24,6 @@ class SugarCane extends TerrainObject{
 		$vec = new Vector3($source_x, $source_y - 1, $source_z);
 		$adjacent_water = false;
 		foreach(self::FACES as $face){
-			// needs a directly adjacent water block
 			$block_type_v = $vec->getSide($face);
 			$block_type = $world->getBlockAt($block_type_v->x, $block_type_v->y, $block_type_v->z)->getId();
 			if($block_type === BlockLegacyIds::STILL_WATER || $block_type === BlockLegacyIds::FLOWING_WATER){
