@@ -104,12 +104,5 @@ abstract class MapLayer{
 		return $this->random->nextBoundedInt($max);
 	}
 
-	/**
-	 * @param int $x
-	 * @param int $z
-	 * @param int $size_x
-	 * @param int $size_z
-	 * @return int[]
-	 */
 	abstract public function generateValues(int $x, int $z, int $size_x, int $size_z) : array;
 }
