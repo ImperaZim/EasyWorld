@@ -20,7 +20,6 @@ class MesaGroundGenerator extends GroundGenerator{
 
 	private int $type;
 
-	/** @var int[] */
 	private array $color_layer;
 
 	private ?SimplexOctaveGenerator $color_noise = null;
