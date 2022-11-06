@@ -25,13 +25,6 @@ class DeepOceanMapLayer extends MapLayer{
 		$final_values = [];
 		for($i = 0; $i < $size_z; ++$i){
 			for($j = 0; $j < $size_x; ++$j){
-				// This applies deep oceans using Von Neumann neighborhood
-				// it takes a 3x3 grid with a cross shape and analyzes values as follow
-				// 0X0
-				// XxX
-				// 0X0
-				// the grid center value decides how we are proceeding:
-				// - if it's ocean and it's surrounded by 4 ocean cells we spread deep ocean.
 				$center_val = $values[$j + 1 + ($i + 1) * $grid_size_x];
 				if($center_val === 0){
 					$upper_val = $values[$j + 1 + $i * $grid_size_x];
