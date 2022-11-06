@@ -14,11 +14,6 @@ use pocketmine\world\format\Chunk;
 
 class FlowerDecorator extends Decorator{
 
-	/**
-	 * @param Random $random
-	 * @param FlowerDecoration[] $decorations
-	 * @return Block|null
-	 */
 	private static function getRandomFlower(Random $random, array $decorations) : ?Block{
 		$total_weight = 0;
 		foreach($decorations as $decoration){
@@ -38,7 +33,6 @@ class FlowerDecorator extends Decorator{
 		return null;
 	}
 
-	/** @var FlowerDecoration[] */
 	private array $flowers = [];
 
 	final public function setFlowers(FlowerDecoration ...$flowers) : void{
@@ -50,7 +44,6 @@ class FlowerDecorator extends Decorator{
 		$z = $random->nextBoundedInt(16);
 		$source_y = $random->nextBoundedInt($chunk->getHighestBlockAt($x & 0x0f, $z & 0x0f) + 32);
 
-		// the flower can change on each decoration pass
 		$flower = self::getRandomFlower($random, $this->flowers);
 		if($flower !== null){
 			(new Flower($flower))->generate($world, $random, ($chunk_x << 4) + $x, $source_y, ($chunk_z << 4) + $z);
