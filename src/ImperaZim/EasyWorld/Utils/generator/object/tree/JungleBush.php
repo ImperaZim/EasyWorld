@@ -13,11 +13,6 @@ use pocketmine\world\ChunkManager;
 
 class JungleBush extends GenericTree{
 
-	/**
-	 * Initializes this bush, preparing it to attempt to generate.
-	 * @param Random $random
-	 * @param BlockTransaction $transaction
-	 */
 	public function __construct(Random $random, BlockTransaction $transaction){
 		parent::__construct($random, $transaction);
 		$this->setType(TreeType::JUNGLE());
@@ -33,16 +28,13 @@ class JungleBush extends GenericTree{
 			--$source_y;
 		}
 
-		// check only below block
 		if(!$this->canPlaceOn($world->getBlockAt($source_x, $source_y - 1, $source_z))){
 			return false;
 		}
 
-		// generates the trunk
 		$adjust_y = $source_y;
 		$this->transaction->addBlockAt($source_x, $adjust_y + 1, $source_z, $this->log_type);
 
-		// generates the leaves
 		for($y = $adjust_y + 1; $y <= $adjust_y + 3; ++$y){
 			$radius = 3 - ($y - $adjust_y);
 
