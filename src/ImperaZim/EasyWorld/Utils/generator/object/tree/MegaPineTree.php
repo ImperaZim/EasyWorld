@@ -26,7 +26,6 @@ class MegaPineTree extends MegaRedwoodTree{
 	}
 
 	protected function generateDirtBelowTrunk(int $block_x, int $block_y, int $block_z) : void{
-		// SELF, SOUTH, EAST, SOUTH EAST
 		$this->transaction->addBlockAt($block_x, $block_y - 1, $block_z, VanillaBlocks::PODZOL());
 		$this->transaction->addBlockAt($block_x, $block_y - 1, $block_z + 1, VanillaBlocks::PODZOL());
 		$this->transaction->addBlockAt($block_x + 1, $block_y - 1, $block_z, VanillaBlocks::PODZOL());
