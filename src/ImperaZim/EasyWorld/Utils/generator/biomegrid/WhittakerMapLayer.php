@@ -68,13 +68,6 @@ class WhittakerMapLayer extends MapLayer {
 		return $final_values;
 	}
 
-	/**
-	 * @param int $x
-	 * @param int $z
-	 * @param int $size_x
-	 * @param int $size_z
-	 * @return int[]
-	 */
 	private function modifyValues(int $x, int $z, int $size_x, int $size_z) : array{
 		$values = $this->below_layer->generateValues($x, $z, $size_x, $size_z);
 		$final_values = [];
