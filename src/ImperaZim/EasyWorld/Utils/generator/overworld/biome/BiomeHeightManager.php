@@ -8,7 +8,6 @@ final class BiomeHeightManager{
 
 	private static BiomeHeight $default;
 
-	/** @var BiomeHeight[] */
 	private static array $heights = [];
 
 	public static function init() : void{
