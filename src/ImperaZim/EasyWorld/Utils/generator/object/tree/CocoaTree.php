@@ -15,7 +15,6 @@ class CocoaTree extends JungleTree{
 
 	private const COCOA_FACES = [Facing::NORTH, Facing::EAST, Facing::SOUTH, Facing::WEST];
 
-	// basically ages?
 	private const SIZE_SMALL = 0;
 	private const SIZE_MEDIUM = 1;
 	private const SIZE_LARGE = 2;
@@ -27,11 +26,8 @@ class CocoaTree extends JungleTree{
 			return false;
 		}
 
-		// places some vines on the trunk
 		$this->addVinesOnTrunk($source_x, $source_y, $source_z, $world, $random);
-		// search for air around leaves to grow hanging vines
 		$this->addVinesOnLeaves($source_x, $source_y, $source_z, $world, $random);
-		// and maybe place some cocoa
 		$this->addCocoa($source_x, $source_y, $source_z, $random);
 		return true;
 	}
