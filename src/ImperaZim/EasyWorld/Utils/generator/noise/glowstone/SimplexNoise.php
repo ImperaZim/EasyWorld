@@ -193,7 +193,7 @@ class SimplexNoise extends PerlinNoise{
 				$j2 = 0;
 				$k2 = 1;
 			}
-		}else{ // x0<y0
+		}else{
 			if($y0 < $z0){
 				$i1 = 0;
 				$j1 = 0;
