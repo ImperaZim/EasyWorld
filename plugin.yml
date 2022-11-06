@@ -4,7 +4,6 @@ author: ImperaZim
 version: 2.0.0
 api: 4.0.0
 main: ImperaZim\EasyWorld\Loader
-description: "clear code and fixe bugs"
 permissions:
   easyworld.manager:
     default: op
