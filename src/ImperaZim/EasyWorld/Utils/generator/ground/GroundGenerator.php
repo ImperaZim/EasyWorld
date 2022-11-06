@@ -40,16 +40,6 @@ class GroundGenerator{
 		$this->ground_material = $ground_material;
 	}
 
-	/**
-	 * Generates a terrain column.
-	 *
-	 * @param ChunkManager $world the affected world
-	 * @param Random $random the PRNG to use
-	 * @param int $x the chunk X coordinate
-	 * @param int $z the chunk Z coordinate
-	 * @param int $biome the biome this column is in
-	 * @param float $surface_noise the amplitude of random variation in surface height
-	 */
 	public function generateTerrainColumn(ChunkManager $world, Random $random, int $x, int $z, int $biome, float $surface_noise) : void{
 		$sea_level = 64;
 
@@ -71,7 +61,6 @@ class GroundGenerator{
 		$bedrock = VanillaBlocks::BEDROCK()->getFullId();
 		$ice = VanillaBlocks::ICE()->getFullId();
 
-		/** @var Chunk $chunk */
 		$chunk = $world->getChunk($x >> 4, $z >> 4);
 		$block_x = $x & 0x0f;
 		$block_z = $z & 0x0f;
