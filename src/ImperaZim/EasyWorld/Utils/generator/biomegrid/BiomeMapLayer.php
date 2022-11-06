@@ -8,25 +8,18 @@ use ImperaZim\EasyWorld\Utils\generator\overworld\biome\BiomeIds;
 
 class BiomeMapLayer extends MapLayer{
 
-	/** @var int[] */
 	private static array $WARM = [BiomeIds::DESERT, BiomeIds::DESERT, BiomeIds::DESERT, BiomeIds::SAVANNA, BiomeIds::SAVANNA, BiomeIds::PLAINS];
 
-	/** @var int[] */
 	private static array $WET = [BiomeIds::PLAINS, BiomeIds::PLAINS, BiomeIds::FOREST, BiomeIds::BIRCH_FOREST, BiomeIds::ROOFED_FOREST, BiomeIds::EXTREME_HILLS, BiomeIds::SWAMPLAND];
 
-	/** @var int[] */
 	private static array $DRY = [BiomeIds::PLAINS, BiomeIds::FOREST, BiomeIds::TAIGA, BiomeIds::EXTREME_HILLS];
 
-	/** @var int[] */
 	private static array $COLD = [BiomeIds::ICE_PLAINS, BiomeIds::ICE_PLAINS, BiomeIds::COLD_TAIGA];
 
-	/** @var int[] */
 	private static array $WARM_LARGE = [BiomeIds::MESA_PLATEAU_STONE, BiomeIds::MESA_PLATEAU_STONE, BiomeIds::MESA_PLATEAU];
 
-	/** @var int[] */
 	private static array $DRY_LARGE = [BiomeIds::MEGA_TAIGA];
 
-	/** @var int[] */
 	private static array $WET_LARGE = [BiomeIds::JUNGLE];
 
 	private MapLayer $below_layer;
