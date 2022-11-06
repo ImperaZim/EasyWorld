@@ -10,16 +10,6 @@ use pocketmine\world\ChunkManager;
 
 class OreVein extends TerrainObject{
 
-	/**
-	 * The square of the percentage of the radius that is the distance between the given block's
-	 * center and the center of an orthogonal ellipsoid. A block's center is inside the ellipsoid
-	 * if and only if its normalizedSquaredCoordinate values add up to less than 1.
-	 *
-	 * @param float $origin the center of the spheroid
-	 * @param float $radius the spheroid's radius on this axis
-	 * @param int $x the raw coordinate
-	 * @return float the square of the normalized coordinate
-	 */
 	protected static function normalizedSquaredCoordinate(float $origin, float $radius, int $x) : float{
 		$squared_normalized_x = ($x + 0.5 - $origin) / $radius;
 		$squared_normalized_x *= $squared_normalized_x;
@@ -30,11 +20,6 @@ class OreVein extends TerrainObject{
 	private int $amount;
 	private int $target_type;
 
-	/**
-	 * Creates the instance for a given ore type.
-	 *
-	 * @param OreType $oreType the ore type
-	 */
 	public function __construct(OreType $oreType){
 		$this->type = $oreType->getType();
 		$this->amount = $oreType->getAmount();
@@ -68,7 +53,6 @@ class OreVein extends TerrainObject{
 			$max_z = (int) ($origin_z + $radius_h);
 
 			for($x = $min_x; $x <= $max_x; ++$x){
-				// scale the center of x to the range [-1, 1] within the circle
 				$squared_normalized_x = self::normalizedSquaredCoordinate($origin_x, $radius_h, $x);
 				if($squared_normalized_x >= 1){
 					continue;
