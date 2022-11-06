@@ -9,10 +9,8 @@ use function array_key_exists;
 
 class ShoreMapLayer extends MapLayer{
 
-	/** @var int[] */
 	private static array $OCEANS = [BiomeIds::OCEAN => 0, BiomeIds::DEEP_OCEAN => 0];
 
-	/** @var int[] */
 	private static array $SPECIAL_SHORES = [
 		BiomeIds::EXTREME_HILLS => BiomeIds::STONE_BEACH,
 		BiomeIds::EXTREME_HILLS_PLUS_TREES => BiomeIds::STONE_BEACH,
@@ -51,14 +49,6 @@ class ShoreMapLayer extends MapLayer{
 		$final_values = [];
 		for($i = 0; $i < $size_z; ++$i){
 			for($j = 0; $j < $size_x; ++$j){
-				// This applies shores using Von Neumann neighborhood
-				// it takes a 3x3 grid with a cross shape and analyzes values as follow
-				// 0X0
-				// XxX
-				// 0X0
-				// the grid center value decides how we are proceeding:
-				// - if it's not ocean and it's surrounded by at least 1 ocean cell
-				// it turns the center value into beach.
 				$upper_val = $values[$j + 1 + $i * $grid_size_x];
 				$lower_val = $values[$j + 1 + ($i + 2) * $grid_size_x];
 				$left_val = $values[$j + ($i + 1) * $grid_size_x];
