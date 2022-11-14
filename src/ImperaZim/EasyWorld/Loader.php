@@ -27,6 +27,7 @@ class Loader extends PluginBase {
 
  public function onLoad() : void {
   self::$instance = $this;
+  /* generators by czechpmdevs and multiworld */
   $generators = [
    "ender" => EnderGenerator::class,
    "void" => VoidGenerator::class,
@@ -38,7 +39,6 @@ class Loader extends PluginBase {
    GeneratorManager::getInstance()->addGenerator($class, $name, fn() => null, true);
   } 
   WorldReloadEvent::execute();
-  self::getInstance()->getConfig()->get("plugin.prefix");
  }
 
  public function onEnable() : void {
