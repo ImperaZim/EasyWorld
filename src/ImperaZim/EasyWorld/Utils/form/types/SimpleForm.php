@@ -2,6 +2,8 @@
 
 namespace ImperaZim\EasyWorld\Utils\form\types;
 
+use ImperaZim\EasyWorld\Utils\form\Form;
+
 class SimpleForm extends Form {
 
  const IMAGE_TYPE_PATH = 0;
