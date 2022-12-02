@@ -2,6 +2,8 @@
 
 namespace ImperaZim\EasyWorld\Utils\form\types;
 
+use ImperaZim\EasyWorld\Utils\form\Form;
+
 class CustomForm extends Form {
 
  private $labelMap = [];
