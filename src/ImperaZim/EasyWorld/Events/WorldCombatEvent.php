@@ -34,12 +34,11 @@ class WorldCombatEvent implements Listener {
   $message = $plugin->getConfig();
    if (!$damaged instanceof Player) {
    $damager = $event->getDamager();
-   $world = $player->getWorld()->getDisplayName(); 
+   $world = $damaged->getWorld()->getDisplayName(); 
    $config = new Config($plugin->getDataFolder() . "worlds.yml");
    if (!$config->getAll()[$world]["combat"]) {
     $event->cancel();
     $damager->sendMessage($plugin->ProcessTags(["{prefix}", "{world}"], [$message->get("plugin.prefix"), $world], $message->get("world.combat.off.message")));
-    $damaged->sendMessage($plugin->ProcessTags(["{prefix}", "{world}"], [$message->get("plugin.prefix"), $world], $message->get("world.combat.off.message")));
     return true;
    } 
   }
