@@ -5,7 +5,7 @@
 >
 > This plugin is in beta stage and may contain some bugs!
 
-A plugin to make life easier for users who need to edit specific functions of a world and also create, rename and delete worlds quickly using commands or the world management menu. 
+A plugin to make life easier for users who need to edit specific functions of a world using commands or the world management menu. 
 <br> **[Download phar]()** ``Beta Version``
 - - - -
 ## Compatibility
