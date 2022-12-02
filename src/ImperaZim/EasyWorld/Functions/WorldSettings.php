@@ -48,7 +48,7 @@ class WorldSettings {
   $form->addToggle("Send Message in World", $config["chat"], "chat");
   $form->addToggle("World Combat", $config["combat"], "combat");
   $form->sendToPlayer($player);
-  return $form;
+  return $form;  
  }
 
  public static function chat($player, $world, $bool) : void {
