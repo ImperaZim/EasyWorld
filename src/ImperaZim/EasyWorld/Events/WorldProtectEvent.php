@@ -29,6 +29,7 @@ class WorldProtectEvent implements Listener {
  public function PlaceEvent(BlockPlaceEvent $event) {
   $plugin = $this->getPlugin();
   $player = $event->getPlayer();
+  $message = $plugin->getConfig();  
   $world = $player->getWorld()->getDisplayName();
   $config = new Config($plugin->getDataFolder() . "worlds.yml");
   if ($config->getAll()[$world]["protected"]) {
