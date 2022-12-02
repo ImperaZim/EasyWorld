@@ -22,15 +22,12 @@ class WorldSettings {
   
   $form = FormAPI::createCustomForm(function($player, $data = null){
    if (is_null($data)) return true;
-   
-   /* ================================== */
    $plugin = self::getPlugin();
    $server = self::getServer();
    $message = $plugin->getConfig(); 
    $datafolder = $plugin->getDataFolder();
    $world = $player->getWorld()->getDisplayName();
    $worlds = (new Config($datafolder . "worlds.yml"))->getAll()[$world];
-   /* ================================== */
    
    self::chat($player, $world, $data["chat"]);
    self::combat($player, $world, $data["combat"]);
