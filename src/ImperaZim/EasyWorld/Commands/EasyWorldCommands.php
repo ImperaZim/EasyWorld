@@ -9,9 +9,6 @@ use pocketmine\command\Command;
 use pocketmine\plugin\PluginOwned;
 use pocketmine\command\CommandSender;
 use ImperaZim\EasyWorld\Functions\WorldList;
-use ImperaZim\EasyWorld\Functions\WorldCreate;
-use ImperaZim\EasyWorld\Functions\WorldDelete;
-use ImperaZim\EasyWorld\Functions\WorldRename;
 use ImperaZim\EasyWorld\Functions\WorldSettings;
 use ImperaZim\EasyWorld\Functions\WorldTeleport;
 
@@ -76,7 +73,7 @@ class EasyWorldCommands extends Command implements PluginOwned {
    if (in_array(strtolower($args[0]), ["command", "blockcmd", "blockcommand"])) {
     if (isset($args[1])) {
      $command = $args[1];
-     WorldSettings::nocmmand($player, $world, $command);
+     WorldSettings::nocommand($player, $world, $command);
      return true;
     }
     $player->sendMessage($plugin->ProcessTags(["{prefix}"], [$message->get("plugin.prefix")], $message->get("command.block.help")));
