@@ -19,16 +19,10 @@ This plugin is meant to be used on servers made only in the software **[PocketMi
 - help: /easyworld help
 - list: /easyworld list
 - menu: /easyworld menu
-- create: /easyworld create
-- delete: /easyworld delete
-- rename: /easyworld rename
 - command: /easyworld command
 - teleport: /easyworld teleport
 
 ## Commands args:
-- create: /easyworld create (name) (seed) (generator)
-- delete: /easyworld delete (name) 
-- rename: /easyworld rename (old_name) (new_name)
 - teleport: /easyworld teleport (name)
 - command: /easyworld command (command_name)
 	 
