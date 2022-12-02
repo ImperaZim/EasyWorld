@@ -4,18 +4,12 @@ namespace ImperaZim\EasyWorld;
 
 use pocketmine\Server;
 use pocketmine\plugin\PluginBase;
-use pocketmine\world\generator\GeneratorManager;
 use ImperaZim\EasyWorld\Events\WorldCombatEvent;
 use ImperaZim\EasyWorld\Events\WorldReloadEvent;
 use ImperaZim\EasyWorld\Events\WorldNoChatEvent;
 use ImperaZim\EasyWorld\Events\WorldProtectEvent;
 use ImperaZim\EasyWorld\Events\WorldNoCommandEvent;
 use ImperaZim\EasyWorld\Commands\EasyWorldCommands;
-use ImperaZim\EasyWorld\Utils\generator\void\VoidGenerator;
-use ImperaZim\EasyWorld\Utils\generator\ender\EnderGenerator;
-use ImperaZim\EasyWorld\Utils\generator\nether\NetherGenerator;
-use ImperaZim\EasyWorld\Utils\generator\skyblock\SkyBlockGenerator;
-use ImperaZim\EasyWorld\Utils\generator\overworld\OverworldGenerator;
 
 class Loader extends PluginBase {
 
@@ -27,17 +21,6 @@ class Loader extends PluginBase {
 
  public function onLoad() : void {
   self::$instance = $this;
-  /* generators by czechpmdevs and multiworld */
-  $generators = [
-   "ender" => EnderGenerator::class,
-   "void" => VoidGenerator::class,
-   "skyblock" => SkyBlockGenerator::class,
-   "nether_mw" => NetherGenerator::class,
-   "normal_mw" => OverworldGenerator::class
-  ]; 
-  foreach ($generators as $name => $class) {
-   GeneratorManager::getInstance()->addGenerator($class, $name, fn() => null, true);
-  } 
   WorldReloadEvent::execute();
  }
 
